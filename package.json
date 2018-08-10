@@ -14,8 +14,13 @@
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
+    "async": "^2.6.1",
+    "body-parser": "^1.18.3",
     "concurrently": "^3.5.1",
     "express": "^4.16.2",
-    "nodemon": "^1.14.7"
+    "gun": "^0.9.9998",
+    "ipfs": "^0.31.2",
+    "nodemon": "^1.14.7",
+    "react-markdown": "^3.4.1"
   }
 }

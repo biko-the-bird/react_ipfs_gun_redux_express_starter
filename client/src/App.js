@@ -3,9 +3,12 @@ import { Provider } from 'react-redux'
 import logo from './logo.svg'
 import './App.css'
 import store from './store'
-import Customers from './components/Customer/customers'
+import ipfs from './ipfs'
+import UploadImage from './components/UploadImage'
 
 class App extends Component {
+
+  
 
   render () {
     return (
@@ -13,9 +16,10 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <img src={ logo } className="App-logo" alt="logo"/>
-            <h1 className="App-title">React/Redux Express Starter</h1>
-          </header>
-          <Customers/>
+            <h1 className="App-title">GUN IPFS FILE UPLOAD DAPP</h1>
+                    </header>
+          <hr/>
+          <UploadImage/>
         </div>
       </Provider>
     )
