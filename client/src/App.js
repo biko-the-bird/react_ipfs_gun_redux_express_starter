@@ -3,8 +3,8 @@ import { Provider } from 'react-redux'
 import logo from './logo.svg'
 import './App.css'
 import store from './store'
-import ipfs from './ipfs'
 import UploadImage from './components/UploadImage'
+
 
 class App extends Component {
 
@@ -16,8 +16,8 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <img src={ logo } className="App-logo" alt="logo"/>
-            <h1 className="App-title">GUN IPFS FILE UPLOAD DAPP</h1>
-                    </header>
+            <h1 className="App-title">GUN IPFS FILE UPLOAD DAPP STARTER</h1>
+          </header>
           <hr/>
           <UploadImage/>
         </div>

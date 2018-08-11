@@ -14,14 +14,12 @@ class UploadImage extends React.Component {
         super(props);
         this.state = {
             currentGremlins: [],
-            uploadFile: '',
             uploadName: '',
-            sentFileUp: false,
             buffer: undefined,
             ipfsHash: '',
             ipD: false
         }
-        //testing
+        //testing/INITIALIZAION
         this.getGunUsers = this.getGunUsers.bind(this);
 
         //file upload
@@ -29,22 +27,26 @@ class UploadImage extends React.Component {
         this.getFileName = this.getFileName.bind(this);
         this.getFile = this.getFile.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
     }
 
+    //THIS IS WHERE THE MAGIC HAPPENS
     onSubmit = async (name, file) => {
         
   
-        console.log("submit", name, file);
+        //DISABLE BUTTON ON PAGE
         this.setState({
             ipD: true
         })
+        
 
+        //ADD BUFFER FILE TO IPFS
         ipfs.files.add(this.state.buffer, (er, res) => {
             if (er) {
               console.error(er);
               return
             }
+            //ADD ITEM TO GUN AS 'ipfsHash' you can name it whatever you want.
+            //we save the file hash and the name.
             gun.get("gremlins").put({
               ipfsHash: {'name': name, ipfsHash: res[0].hash}});
       
@@ -52,25 +54,21 @@ class UploadImage extends React.Component {
             alert(this.state.ipfsHash);
           })
             
-            //console.log(typeof(b64File));
-          
-
-
-       
-  
         //save document to IPFS,return its hash#, and set hash# to state
         //https://github.com/ipfs/interface-ipfs-core/blob/master/SPEC/FILES.md#add 
        
-  }; //onSubmit 
+  }; 
 
+  //initialization gets gun files from the network 
     getGunUsers() {
         var thisC = this;
+
+        //SIMPLE EXAMLE ADD OBJ TO GUN
         //gun.get("gremlins").put({
         //'alice': {'name': 'alice', 'color': 'blue'}});
 
-        
+        //names here like gremlins can be changed to whatever you want
         var gremlins = gun.get('gremlins').once(function(e) {
-            console.log(e, "jjj");
             var grems = gremlins.map(function(gremlin){
                 console.log("The person is", gremlin);
                 var cGrems = thisC.state.currentGremlins.slice();
@@ -88,15 +86,18 @@ class UploadImage extends React.Component {
        
         
     }
+
+
     componentDidMount() {
 
+        //get existing 'gremlins' from the network
         this.getGunUsers();
        
     }
 
+    //disable button when the upload is sent to ipfs
     sendReadyChecker() {
         if (this.state.ipD) {
-
         } else {
             return (
                 <div>
@@ -104,29 +105,17 @@ class UploadImage extends React.Component {
             
             </div>)
         }
-    
-          
-    
     }
 
-    sendUpload(name, file) {
-        this.setState({
-            sentFileUp: true
-        });
-        console.log(name, file);
-
-
-
-
-    }
-
+    //name for the file to be saved to gun
     getFileName(e) {
         this.setState({
             uploadName: e.target.value
         })
     }
+
+    //turn our file into a 'buffer' so ipfs can understand it
     getFile(e) {
-       
         var t = this;
         const file = e.target.files[0];
         const reader = new window.FileReader();
@@ -147,6 +136,7 @@ class UploadImage extends React.Component {
 
             var gremsArr = [];
         
+            //iterating over the gremlins we got from the network and showing them on page
             for (var i = 0; i < this.state.currentGremlins.length; i++) {
                 gremsArr.push(
                     <div >

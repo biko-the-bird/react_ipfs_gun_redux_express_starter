@@ -30,15 +30,7 @@ recursiveRoutes('routes'); // Initialize it
 
 app.get('/health-check', (req, res) => res.sendStatus(200));
 
-app.get('/api/customers', (req, res) => {
-  const customers = [
-    {id: 1, firstName: 'John', lastName: 'Doe'},
-    {id: 2, firstName: 'Brad', lastName: 'Traversy'},
-    {id: 3, firstName: 'Mary', lastName: 'Swanson'},
-  ];
 
-  res.json(customers);
-});
 
 const port = 5000;
 

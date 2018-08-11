@@ -1,10 +1,7 @@
-# React/Redux Express Starter Pack
+# GUN/IPFS BoilerPlate with React/Redux Express Starter Pack
 
-> Create full stack apps with React/Redux and Express. Run your client and server with a single command
+> Create full stack apps with React/Redux, Gun/IPFS, and Express. Run your client and server with a single command
 
-### Version Without Redux
-This version includes Redux
-[Click Here For the Version WITHOUT Redux](https://github.com/bradtraversy/react_express_starter) 
 
 ## Quick Start
 
@@ -24,14 +21,17 @@ npm run server
 # Run the React client only
 npm run client
 
-# Server runs on http://localhost:5000 and client on http://localhost:3000
+# Server runs on http://localhost:5000 (gun @5000/gunDB) and client on http://localhost:3000
 ```
 
 ## App Info
 
 ### Authors
+IPFS/Gun fork author:
+biko-the-bird
 
-Brad Traversy & Gregory Assasie
+Original Authors:
+Brad Traversy & Gregory Assasie 
 
 ### Version
 
