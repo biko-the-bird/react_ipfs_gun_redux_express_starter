@@ -18,7 +18,7 @@
     "body-parser": "^1.18.3",
     "concurrently": "^3.6.1",
     "express": "^4.16.3",
-    "gun": "^0.9.99991",
+    "gun": "^0.9.99993",
     "ipfs": "^0.31.7",
     "nodemon": "^1.18.4",
     "react-markdown": "^3.4.1"
