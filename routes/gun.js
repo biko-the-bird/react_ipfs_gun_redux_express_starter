@@ -1,5 +1,5 @@
 var Gun = require('gun')
-module.exports = functi on(app){
+module.exports = function(app){
 
     app.put(`/gunDB`, function(req, res) {
         console.log("hit gun");
