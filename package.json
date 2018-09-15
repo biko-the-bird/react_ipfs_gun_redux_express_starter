@@ -19,7 +19,7 @@
     "concurrently": "^3.6.1",
     "express": "^4.16.3",
     "gun": "^0.9.99993",
-    "ipfs": "^0.31.7",
+    "ipfs": "^0.32.0",
     "nodemon": "^1.18.4",
     "react-markdown": "^3.4.1"
   }
